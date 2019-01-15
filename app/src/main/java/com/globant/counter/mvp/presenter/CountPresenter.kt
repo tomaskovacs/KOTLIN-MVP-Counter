@@ -10,7 +10,7 @@ class CountPresenter(private val model: CountModel, val view: CountView) {
 
     // If you are subscribing to events, always have a composite disposable to dispose of the observers and its references
     // when the presenter is not needed anymore
-    private val compositeDisposable = CompositeDisposable()
+    /*private val compositeDisposable = CompositeDisposable()
 
     // method created to illustrate testing, not always is a good idea to have a standalone init method
     // we could have just the default kotlin init block
@@ -32,5 +32,5 @@ class CountPresenter(private val model: CountModel, val view: CountView) {
 
     fun disposeObservers() {
         compositeDisposable.clear()
-    }
+    }*/
 }
