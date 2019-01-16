@@ -2,9 +2,8 @@ package com.globant.counter.mvp.view
 
 import android.app.Activity
 import android.widget.Toast
-import com.globant.counter.rx.events.OnEqualsButtonPressedBusObserver
-import com.globant.counter.rx.events.OnNumberButtonPressedBusObserver
-import com.globant.counter.rx.events.OnOperatorButtonBusObserver
+import com.globant.counter.rx.events.*
+import com.globant.counter.utils.Constants
 import com.globant.counter.utils.RxBus
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -45,21 +44,31 @@ class CalculatorView(activity: Activity) : ActivityView(activity) {
 
         // Operator click listeners
         activity.btn_calculator_add.setOnClickListener {
-            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed("+", getDisplayText()))
+            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.ADD_SYMBOL, getDisplayText()))
         }
         activity.btn_calculator_subtract.setOnClickListener {
-            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed("-", getDisplayText()))
+            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.SUBTRACT_SYMBOL, getDisplayText()))
         }
         activity.btn_calculator_multiply.setOnClickListener {
-            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed("*", getDisplayText()))
+            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.MULTIPLY_SYMBOL, getDisplayText()))
         }
         activity.btn_calculator_divide.setOnClickListener {
-            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed("/", getDisplayText()))
+            RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.DIVIDE_SYMBOL, getDisplayText()))
         }
 
         // Equals click listener
         activity.btn_calculator_equals.setOnClickListener {
             RxBus.post(OnEqualsButtonPressedBusObserver.OnEqualsButtonPressed(getDisplayText()))
+        }
+
+        // Clear click listener
+        activity.btn_calculator_clear.setOnClickListener {
+            RxBus.post(OnClearButtonPressedBusObserver.OnClearButtonPressed())
+        }
+
+        // Dot click listener
+        activity.btn_calculator_dot.setOnClickListener {
+            RxBus.post(OnDotButtonPressedBusObserver.OnDotButtonPressed(getDisplayText()))
         }
     }
 
@@ -69,6 +78,18 @@ class CalculatorView(activity: Activity) : ActivityView(activity) {
 
     fun setDisplayText(text: String) {
         activity!!.text_calculator_display.text = text
+    }
+
+    fun addNumber(number: String) {
+        setDisplayText(getDisplayText() + number)
+    }
+
+    fun addOperator(operator: String) {
+        setDisplayText(getDisplayText() + operator)
+    }
+
+    fun addDot() {
+        setDisplayText(getDisplayText() + Constants.DOT)
     }
 
     fun showMessage(message: String) {

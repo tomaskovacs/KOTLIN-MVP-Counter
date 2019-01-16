@@ -20,11 +20,4 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         presenter?.init()
     }
-
-    /*override fun onDestroy() {
-        presenter?.disposeObservers()
-        // Call on destroy after doing what you have to do with the presenter because it may cause unwanted exceptions
-        // in the view
-        super.onDestroy()
-    }*/
 }

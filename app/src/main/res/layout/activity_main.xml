@@ -11,7 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="1"
-        android:overScrollMode="ifContentScrolls"
         android:text="@string/txt_main_activity_number_zero"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"

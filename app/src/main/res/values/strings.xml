@@ -18,6 +18,4 @@
     <string name="txt_main_activity_dot">.</string>
     <string name="txt_main_activity_equals">=</string>
     <string name="txt_main_activity_message_one_operator">You can only use one operator</string>
-    <string name="txt_main_activity_message_use_operator">Use an operator</string>
-    <string name="txt_main_activity_message_add_second_parameter">Add a second number</string>
 </resources>
