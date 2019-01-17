@@ -10,6 +10,7 @@ class CalculatorModel {
 
     fun makeOperation(firstNumber: Double, secondNumber: Double): Double {
         val result = MathUtils.makeOperation(firstNumber, operator, secondNumber)
+        displayContent = result.toString()
         clearOperator()
         return result
     }

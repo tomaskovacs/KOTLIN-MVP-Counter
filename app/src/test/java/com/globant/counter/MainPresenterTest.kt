@@ -3,6 +3,12 @@ package com.globant.counter
 import com.globant.counter.mvp.model.CalculatorModel
 import com.globant.counter.mvp.presenter.CalculatorPresenter
 import com.globant.counter.mvp.view.CalculatorView
+import com.globant.counter.rx.events.OnEqualsButtonPressedBusObserver
+import com.globant.counter.rx.events.OnNumberButtonPressedBusObserver
+import com.globant.counter.rx.events.OnOperatorButtonBusObserver
+import com.globant.counter.utils.Constants
+import com.globant.counter.utils.RxBus
+import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
@@ -13,7 +19,7 @@ class PresenterTest {
 
     private var presenter: CalculatorPresenter? = null
     @Mock
-    lateinit var model: CalculatorModel // Mocking the model is to illustrate a non-trivial model
+    lateinit var model: CalculatorModel
     @Mock
     lateinit var view: CalculatorView
     @Mock
@@ -25,45 +31,56 @@ class PresenterTest {
         // When
         whenever(view.activity).thenReturn(activity)
 
+        model = CalculatorModel()
+
         presenter = CalculatorPresenter(model, view)
+        presenter!!.init()
     }
 
     @Test
-    fun isShouldIncCountByOne() {
-        /*val count = 1
-        whenever(model.count).thenReturn(count)
-        whenever(view.viewEventObservable).thenReturn(Observable.just(EventTypes.INCREMENT_EVENT))
-        presenter?.initPresenter()
+    fun additionTest() {
+        model.clearDisplayContent()
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.ADD_SYMBOL, "11"))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(2))
+        RxBus.post(OnEqualsButtonPressedBusObserver.OnEqualsButtonPressed("11+2"))
 
-        verify(model).inc()
-        verify(model).count
-        verify(view).setCount(count.toString())*/
+        Assert.assertEquals(model.displayContent, "13.0")
     }
 
     @Test
-    fun presenterResetModelTest() {
-        /*val countResetValue = 0
-        whenever(model.count).thenReturn(countResetValue)
-        whenever(view.viewEventObservable).thenReturn(Observable.just(RESET_COUNT_EVENT))
+    fun subtractionTest() {
+        model.clearDisplayContent()
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(3))
+        RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.SUBTRACT_SYMBOL, "3"))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(9))
+        RxBus.post(OnEqualsButtonPressedBusObserver.OnEqualsButtonPressed("3-9"))
 
-        presenter?.initPresenter()
-        verify(model).reset()
-        verify(model).count
-        verify(view).setCount(countResetValue.toString())*/
+        Assert.assertEquals(model.displayContent, "-6.0")
     }
 
     @Test
-    fun isShouldAddNumber() {
+    fun multiplicationTest() {
+        model.clearDisplayContent()
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.MULTIPLY_SYMBOL, "11"))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(2))
+        RxBus.post(OnEqualsButtonPressedBusObserver.OnEqualsButtonPressed("11*2"))
 
+        Assert.assertEquals(model.displayContent, "22.0")
     }
 
     @Test
-    fun isShouldMakeOperation() {
+    fun divisionTest() {
+        model.clearDisplayContent()
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(1))
+        RxBus.post(OnOperatorButtonBusObserver.OnOperatorButtonPressed(Constants.DIVIDE_SYMBOL, "11"))
+        RxBus.post(OnNumberButtonPressedBusObserver.OnNumberButtonPressed(2))
+        RxBus.post(OnEqualsButtonPressedBusObserver.OnEqualsButtonPressed("11/2"))
 
-    }
-
-    @Test
-    fun isShouldClearDisplay() {
-
+        Assert.assertEquals(model.displayContent, "5.5")
     }
 }

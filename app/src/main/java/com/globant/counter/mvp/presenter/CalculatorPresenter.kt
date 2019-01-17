@@ -21,7 +21,6 @@ class CalculatorPresenter(private val model: CalculatorModel, private val view: 
                         model.isResult = false
                     } else {
                         view.addNumber(value.number.toString())
-                        model.displayContent = view.getDisplayText()
                     }
                 }
             })
