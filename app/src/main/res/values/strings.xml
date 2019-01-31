@@ -1,6 +1,21 @@
 <resources>
     <string name="app_name">Counter</string>
-    <string name="txt_main_activity_starting_count_label_value">0</string>
-    <string name="txt_main_activity_count_btn_label">inc</string>
-    <string name="txt_main_activity_reset_btn_label">reset</string>
+    <string name="txt_main_activity_number_one">1</string>
+    <string name="txt_main_activity_number_two">2</string>
+    <string name="txt_main_activity_number_three">3</string>
+    <string name="txt_main_activity_number_four">4</string>
+    <string name="txt_main_activity_number_five">5</string>
+    <string name="txt_main_activity_number_six">6</string>
+    <string name="txt_main_activity_number_seven">7</string>
+    <string name="txt_main_activity_number_eight">8</string>
+    <string name="txt_main_activity_number_nine">9</string>
+    <string name="txt_main_activity_number_zero">0</string>
+    <string name="txt_main_activity_operator_addition">+</string>
+    <string name="txt_main_activity_operator_subtraction">-</string>
+    <string name="txt_main_activity_operator_multiplication">*</string>
+    <string name="txt_main_activity_operator_division">/</string>
+    <string name="txt_main_activity_clear">C</string>
+    <string name="txt_main_activity_dot">.</string>
+    <string name="txt_main_activity_equals">=</string>
+    <string name="txt_main_activity_message_one_operator">You can only use one operator</string>
 </resources>

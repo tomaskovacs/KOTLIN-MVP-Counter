@@ -1,28 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:padding="@dimen/activity_padding_small">
 
     <TextView
-        android:id="@+id/countLabel"
-        android:layout_width="wrap_content"
+        android:id="@+id/text_calculator_display"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/txt_main_activity_starting_count_label_value"
-        android:textSize="40sp" />
+        android:maxLines="1"
+        android:text="@string/txt_main_activity_number_zero"
+        android:textSize="@dimen/display_text_size_xbig_40"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/countBtn"
+        android:id="@+id/btn_calculator_seven"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_main_activity_count_btn_label" />
+        android:text="@string/txt_main_activity_number_seven"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_eight"
+        app:layout_constraintTop_toBottomOf="@id/text_calculator_display" />
 
     <Button
-        android:id="@+id/resetBtn"
+        android:id="@+id/btn_calculator_eight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/txt_main_activity_reset_btn_label" />
+        android:text="@string/txt_main_activity_number_eight"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_seven"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_nine"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_seven" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btn_calculator_nine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_nine"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_eight"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_divide"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_seven" />
+
+    <Button
+        android:id="@+id/btn_calculator_divide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_operator_division"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_nine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_seven" />
+
+    <Button
+        android:id="@+id/btn_calculator_four"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_four"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_five"
+        app:layout_constraintTop_toBottomOf="@id/btn_calculator_seven" />
+
+    <Button
+        android:id="@+id/btn_calculator_five"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_five"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_four"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_six"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_four" />
+
+    <Button
+        android:id="@+id/btn_calculator_six"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_six"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_five"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_divide"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_four" />
+
+    <Button
+        android:id="@+id/btn_calculator_multiply"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_operator_multiplication"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_six"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_four" />
+
+    <Button
+        android:id="@+id/btn_calculator_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_one"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_two"
+        app:layout_constraintTop_toBottomOf="@id/btn_calculator_four" />
+
+    <Button
+        android:id="@+id/btn_calculator_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_two"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_one"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_three"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_one" />
+
+    <Button
+        android:id="@+id/btn_calculator_three"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_three"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_two"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_subtract"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_one" />
+
+    <Button
+        android:id="@+id/btn_calculator_subtract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_operator_subtraction"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_one" />
+
+    <Button
+        android:id="@+id/btn_calculator_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_clear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_zero"
+        app:layout_constraintTop_toBottomOf="@id/btn_calculator_one" />
+
+    <Button
+        android:id="@+id/btn_calculator_zero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_number_zero"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_clear"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_dot"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_clear" />
+
+    <Button
+        android:id="@+id/btn_calculator_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_dot"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_zero"
+        app:layout_constraintEnd_toStartOf="@id/btn_calculator_add"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_clear" />
+
+    <Button
+        android:id="@+id/btn_calculator_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_operator_addition"
+        app:layout_constraintStart_toEndOf="@id/btn_calculator_dot"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btn_calculator_clear" />
+
+    <Button
+        android:id="@+id/btn_calculator_equals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_main_activity_equals"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_calculator_clear" />
+
+</android.support.constraint.ConstraintLayout>
