@@ -8,5 +8,8 @@ class Constants {
         const val MULTIPLY_SYMBOL = "*"
         const val DIVIDE_SYMBOL = "/"
         const val DOT = "."
+        const val ZERO = "0"
+        const val EMPTY_STRING = ""
     }
 }
+

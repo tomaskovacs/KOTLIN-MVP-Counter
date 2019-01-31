@@ -1,6 +1,6 @@
 package com.globant.counter.utils
 
-class MathUtils {
+class Operation {
 
     companion object {
         fun addition(firstNumber: Double, secondNumber: Double): Double = firstNumber + secondNumber
@@ -18,10 +18,10 @@ class MathUtils {
 
         fun makeOperation(firstNumber: Double, operator: String, secondNumber: Double): Double {
             return when (operator) {
-                "+" -> addition(firstNumber, secondNumber)
-                "-" -> subtraction(firstNumber, secondNumber)
-                "*" -> multiplication(firstNumber, secondNumber)
-                "/" -> division(firstNumber, secondNumber)
+                Constants.ADD_SYMBOL -> addition(firstNumber, secondNumber)
+                Constants.SUBTRACT_SYMBOL -> subtraction(firstNumber, secondNumber)
+                Constants.MULTIPLY_SYMBOL -> multiplication(firstNumber, secondNumber)
+                Constants.DIVIDE_SYMBOL -> division(firstNumber, secondNumber)
                 else -> 0.0
             }
         }

@@ -34,7 +34,7 @@ class PresenterTest {
         model = CalculatorModel()
 
         presenter = CalculatorPresenter(model, view)
-        presenter!!.init()
+        presenter?.init()
     }
 
     @Test

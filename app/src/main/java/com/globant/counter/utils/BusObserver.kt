@@ -13,3 +13,4 @@ abstract class BusObserver<in T>(private val clazz: Class<T>) : Consumer<Any> {
 
     abstract fun onEvent(value: T)
 }
+

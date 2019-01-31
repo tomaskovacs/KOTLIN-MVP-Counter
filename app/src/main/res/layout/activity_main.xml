@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="@dimen/activity_padding_small">
 
     <TextView
         android:id="@+id/text_calculator_display"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:text="@string/txt_main_activity_number_zero"
-        android:textSize="40sp"
+        android:textSize="@dimen/display_text_size_xbig_40"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
